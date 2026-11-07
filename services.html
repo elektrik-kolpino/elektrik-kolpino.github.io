@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги электрика в Колпино — Электромонтажные работы</title>
+    <title>Цены на электромонтажные работы in Колпино — Прайс-лист</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
@@ -45,14 +45,14 @@
         .page-title { padding: 60px 0 20px 0; text-align: center; font-size: 36px; font-weight: 900; text-transform: uppercase; }
         .page-title span { text-shadow: 0 0 15px var(--neon-pink); color: #fff; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 40px 0 20px 0; }
-        .card { background-color: var(--card-bg); border: 1px solid #22222b; padding: 30px; border-radius: 4px; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        .card:hover { transform: translateY(-5px); border-color: var(--neon-cyan); box-shadow: 0 5px 25px rgba(0, 243, 255, 0.2); }
-        .card-icon { font-size: 38px; color: #fff; margin-bottom: 20px; text-shadow: 0 0 12px var(--neon-pink); }
-        .card h3 { font-size: 20px; margin-bottom: 12px; text-transform: uppercase; color: #fff; }
-        .card p { color: var(--text-muted); font-size: 14px; }
+        /* СТИЛЬНАЯ ТАБЛИЦА ЦЕН */
+        .table-wrap { background-color: var(--card-bg); border: 1px solid #22222b; border-radius: 4px; padding: 25px; margin: 40px 0 20px 0; overflow-x: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { font-weight: 700; text-transform: uppercase; padding: 18px 15px; border-bottom: 2px solid var(--neon-pink); color: #fff; font-size: 14px; }
+        td { padding: 16px 15px; border-bottom: 1px solid #1f1f28; color: var(--text-muted); font-size: 15px; }
+        tr:hover td { color: #fff; background-color: #1a1a23; }
+        .price-val { font-weight: 700; color: var(--text-main); text-shadow: 0 0 5px var(--neon-cyan); text-align: right; white-space: nowrap; }
         
-        /* КНОПКИ МЕССЕНДЖЕРОВ ДЛЯ СВЯЗИ */
         .messenger-block { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0 40px 0; padding: 20px; background: #141418; border: 1px dashed #22222b; border-radius: 4px; }
         .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; }
         .btn-wa { border: 2px solid #25D366; color: #fff; background: transparent; } 
@@ -60,9 +60,6 @@
         .btn-tg { border: 2px solid #0088cc; color: #fff; background: transparent; } 
         .btn-tg:hover { background-color: #0088cc; box-shadow: 0 0 30px #0088cc; text-shadow: 0 0 5px #fff; }
 
-        .info-box { background-color: var(--card-bg); border-left: 4px solid var(--neon-cyan); padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        .info-box h3 { text-transform: uppercase; margin-bottom: 10px; font-size: 18px; color: #fff; }
-        
         .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11, 11, 13, 0.95); border-top: 2px solid var(--neon-pink); padding: 12px 20px; z-index: 999; backdrop-filter: blur(5px); }
         .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
         
@@ -81,8 +78,8 @@
             <a href="index.html" class="logo"><i class="fa-solid fa-lightbulb"></i><span>КОЛПИНО</span> ЭЛЕКТРИК</a>
             <nav>
                 <a href="index.html">Главная</a>
-                <a href="services.html" class="active">Услуги</a>
-                <a href="prices.html">Цены</a>
+                <a href="services.html">Услуги</a>
+                <a href="prices.html" class="active">Цены</a>
                 <a href="contacts.html">Контакты</a>
             </nav>
             <a href="tel:+79500308830" class="neon-phone"><i class="fa-solid fa-phone"></i> 8 950 030 88 30</a>
@@ -90,51 +87,37 @@
     </header>
 
     <div class="container">
-        <h1 class="page-title">Наши <span>Услуги</span></h1>
+        <h1 class="page-title">Честный <span>Прайс</span></h1>
         
-        <div class="grid">
-            <!-- Блок 1 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Устранение аварий</h3>
-                <p>Поиск скрытых обрывов, оперативное восстановление поврежденного энергоснабжения после коротких замыканий и перегрузок проводки. Телефон связи: 8 950 030 88 30.</p>
-            </div>
-            <!-- Блок 2 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-plug-circle-exclamation"></i></div>
-                <h3>Розетки и выключатели</h3>
-                <p>Комплексная замена розеток, выключателей, диммеров. Монтаж защищенных наружных розеток в бетон или кирпич, профессиональный перенос точек питания.</p>
-            </div>
-            <!-- Блок 3 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-box-tissue"></i></div>
-                <h3>Щиты и автоматика</h3>
-                <p>Замена неисправных автоматических выключателей (автоматов) in щитах, монтаж УЗО, полная профессиональная переборка и модернизация старых электрощитов.</p>
-            </div>
-            <!-- Блок 4 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-house-laptop"></i></div>
-                <h3>Бытовая техника</h3>
-                <p>Прокладка выделенных силовых линий питания со своим автоматом для стиральных машин, бойлеров. Ремонт бытовых электроплит и замена конфорок.</p>
-            </div>
-            <!-- Блок 5 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-cable-navy"></i></div>
-                <h3>Замена проводки</h3>
-                <p>Полный демонтаж ветхой алюминиевой проводки и разводка надежного медного кабеля. Прокладка силовых и слаботочных телевизионных сетей в Колпино.</p>
-            </div>
-            <!-- Блок 6 -->
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>Замена счетчиков</h3>
-                <p>Безопасный демонтаж отслуживших приборов учета и оперативная установка новых сертифицированных счетчиков электроэнергии (электросчетчиков).</p>
-            </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Наименование электромонтажных работ</th>
+                        <th style="text-align: right;">Минимальная стоимость</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Вызов мастера на дом по Колпино (минимальный заказ)</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Поиск обрыва, короткого замыкания или неисправности в сети</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Замена или установка автоматического выключателя в щитке</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Установка, замена или перенос розеток и выключателей</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Монтаж и высверливание наружной точки питания в стене</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Прокладка силового кабеля в кабель-канале / гофре (комплекс)</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Замена счетчика электроэнергии (демонтаж + установка нового)</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Подключение стиральной машины, бойлера (с прокладкой линии)</td><td class="price-val">от 2 000 руб.</td></tr>
+                    <tr><td>Сборка, модернизация или полная переборка электрощита</td><td class="price-val">от 3 000 руб.</td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- НАПИСАТЬ В МЕССЕНДЖЕРЫ -->
         <div class="messenger-block">
-            <a href="https://wa.me" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Написать в WhatsApp</a>
-            <a href="https://t.me" target="_blank" class="btn btn-tg"><i class="fa-brands fa-telegram"></i> Написать в Telegram</a>
+            <a href="https://wa.me" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> Скинуть список в WhatsApp</a>
+            <a href="https://t.me" target="_blank" class="btn btn-tg"><i class="fa-brands fa-telegram"></i> Скинуть список в Telegram</a>
         </div>
+    </div>
 
-        <div class="info-box">
+    <div class="sticky-mobile-action"><a href="tel:+79500308830" class="btn-sticky"><i class="fa-solid fa-phone-flip"></i> Позвонить: 8 950 030 88 30</a></div>
+    <footer><div class="container"><p>Электрик-Колпино © 2026. Заказ услуг: 8 950 030 88 30</p></div></footer>
+</body>
+</html>
