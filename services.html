@@ -32,7 +32,6 @@
         nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink); transition: 0.3s; }
         nav a:hover::after, nav a.active::after { width: 100%; }
 
-        /* ПЕРЕЛИВАЮЩИЙСЯ ТЕЛЕФОН */
         .neon-phone {
             font-weight: 900; font-size: 20px; text-decoration: none; padding: 8px 16px; border-radius: 4px; border: 2px solid transparent;
             background: linear-gradient(#141418, #141418) padding-box, linear-gradient(90deg, #ff007f, #00f3ff, #ff007f) border-box;
@@ -55,10 +54,8 @@
             border-radius: 4px; 
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
             box-shadow: 0 5px 15px rgba(0,0,0,0.6); 
-            position: relative;
         }
         
-        /* ЭФФЕКТ ДИНАМИЧЕСКОГО ПОДКЛЮЧЕНИЯ ТОКА (НЕОНОВОЕ СВЕЧЕНИЕ КАРТОЧЕК) */
         .card:nth-child(odd):hover { 
             transform: translateY(-5px); 
             border-color: var(--neon-cyan); 
@@ -70,7 +67,6 @@
             box-shadow: 0 0 20px rgba(255, 0, 127, 0.4), inset 0 0 10px rgba(255, 0, 127, 0.2); 
         }
 
-        /* ЭЛЕКТРИЧЕСКИЕ ИКОНКИ С СИЯНИЕМ */
         .card-icon { font-size: 36px; color: #fff; margin-bottom: 15px; transition: 0.3s; }
         .card:nth-child(odd) .card-icon { text-shadow: 0 0 10px var(--neon-cyan); }
         .card:nth-child(even) .card-icon { text-shadow: 0 0 10px var(--neon-pink); }
@@ -82,7 +78,6 @@
         .card p { color: var(--text-muted); font-size: 14px; transition: 0.3s; }
         .card:hover p { color: #fff; }
         
-        /* ОГРОМНЫЕ ССЫЛКИ НА МЕССЕНДЖЕРЫ */
         .messenger-block { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; padding: 30px; background: #141418; border: 2px dashed #ff007f; box-shadow: 0 0 25px rgba(255,0,127,0.15); border-radius: 4px; }
         .btn { display: inline-flex; align-items: center; gap: 12px; padding: 20px 45px; font-size: 20px; font-weight: 900; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; }
         .btn-wa { border: 2px solid #25D366; color: #fff; background: transparent; box-shadow: 0 0 15px rgba(37,211,102,0.2); } 
@@ -137,10 +132,15 @@
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
                 <h3>Монтаж люстр в Колпино</h3>
-                <p>Профессиональная сборка, надежное потолочное крепление и безопасное подключение любых люстр, тяжелых подвесных светильников или бра.</p>
+                <p>Профессиональная сборка, надежное потолочное крепление и безопасное подключение любых люстр, heavy подвесных светильников или бра.</p>
             </div>
             <!-- 4 -->
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-circle-dot"></i></div>
                 <h3>Точечные светильники в Колпино</h3>
                 <p>Установка, разводка линий и замена врезных потолочных светильников, диодных лент, софитов и элементов декоративной интерьерной подсветки.</p>
+            </div>
+            <!-- 5 -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-plug-circle-exclamation"></i></div>
+                <h3>Блок Ванна-Туалет в Колпино</h3>
