@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Электрик Колпино — Вызов мастера на дом</title>
     <meta name="description" content="Срочный вызов электрика в Колпино и Колпинском районе СПб. Все виды электромонтажных работ, устранение замыканий. Звоните: +7 (950) 030-88-30.">
+    
     <!-- Подключаем иконки FontAwesome (стиль неоновых значков) -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Подключаем шрифт в стиле современных интерфейсов -->
+    
+    <!-- Подключаем шрифт Montserrat -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -35,7 +37,7 @@
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            padding-bottom: 80px; /* Отступ снизу для мобильной кнопки */
+            padding-bottom: 80px; 
         }
 
         .container {
@@ -271,7 +273,7 @@
 
         /* ПЛАВАЮЩАЯ МОБИЛЬНАЯ КНОПКА ВЫЗОВА */
         .sticky-mobile-action {
-            display: none; /* Скрыта на компьютерах */
+            display: none; 
             position: fixed;
             bottom: 0;
             left: 0;
@@ -303,13 +305,13 @@
 
         /* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ */
         @media (max-width: 768px) {
-            body { padding-bottom: 90px; } /* Добавляем отступ, чтобы футер не перекрывался кнопкой */
+            body { padding-bottom: 90px; } 
             .hero h1 { font-size: 30px; }
             .header-wrap { flex-direction: column; gap: 15px; text-align: center; }
-            .header-phone { display: none; } /* Скрываем обычный телефон в шапке, т.к. будет плавающий внизу */
+            .header-phone { display: none; } 
             .btn-group { flex-direction: column; width: 100%; }
             .btn { width: 100%; justify-content: center; }
-            .sticky-mobile-action { display: block; } /* Показываем кнопку на смартфонах */
+            .sticky-mobile-action { display: block; } 
         }
     </style>
 </head>
@@ -330,3 +332,6 @@
     <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
         <div class="container">
+            <h1 class="neon-title">У Вас погас свет?</h1>
+            <p>Искрит в розетке, и вы не знаете что делать? Волшебный телефон решит проблемы с электропроводкой в Колпинском районе быстро, надежно и по честной цене!</p>
+            
