@@ -9,42 +9,78 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #111111; --card-bg: #1c1c1c; --text-main: #ffffff; --text-muted: #959595;
-            --neon-pink: #ff007f; --neon-glow: rgba(255, 0, 127, 0.6); --neon-cyan: #00f3ff;
+            --bg-color: #0b0b0d; --card-bg: #141418; --text-main: #ffffff; --text-muted: #8e8e9f;
+            --neon-pink: #ff007f; --neon-glow: rgba(255, 0, 127, 0.6); --neon-cyan: #00f3ff; --neon-cyan-glow: rgba(0, 243, 255, 0.4);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; padding-bottom: 80px; }
+        
+        /* ФОНОВАЯ ТЕКСТУРА ПРОВОДОВ И МИКРОСХЕМ (SVG кодирован в CSS) */
+        body { 
+            background-color: var(--bg-color); 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231b1b22' fill-opacity='0.4'%3E%3Cpath d='M0 0h20v2h-18v18h-2V0zm80 0v20h-2V2H62V0h18zM0 80v-20h2v18h18v2H0zm80 0H60v-2h18V60h2v20zM38 38h4v4h-4v-4zm4-30h-4v12h4V8zm0 52h-4v12h4v-12zm-30-14h12v-4H12v4zm52 0h12v-4H64v4zM22 22h4v4h-4v-4zm32 0h4v4h-4v-4zm0 32h4v4h-4v-4zm-32 0h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text-main); 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.6; 
+            padding-bottom: 80px; 
+        }
+        
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background-color: rgba(17, 17, 17, 0.95); border-bottom: 1px solid #2c2c2c; position: sticky; top: 0; z-index: 100; padding: 15px 0; }
+        header { background-color: rgba(11, 11, 13, 0.95); border-bottom: 2px solid #22222b; position: sticky; top: 0; z-index: 100; padding: 15px 0; backdrop-filter: blur(5px); }
         .header-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; }
-        .logo span { text-shadow: 0 0 10px var(--neon-cyan); }
+        
+        /* ЛОГОТИП С НЕОНОВОЙ ЛАМПОЧКОЙ */
+        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: #fff; text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan); }
+        .logo i { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-size: 20px; }
         .logo-dot { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+        
         nav { display: flex; gap: 20px; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; position: relative; }
         nav a:hover, nav a.active { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
-        .hero { padding: 80px 0; text-align: center; background: radial-gradient(circle at center, #221220 0%, var(--bg-color) 70%); }
-        .hero h1 { font-size: 42px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
-        .neon-title { text-shadow: 0 0 15px var(--neon-pink); }
-        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; }
+        
+        /* ЭФФЕКТ ТОКА ПОД ССЫЛКАМИ НАВИГАЦИИ */
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink); transition: 0.3s; }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
+        /* ГЛАВНЫЙ ЭКРАН С ЭЛЕКТРОМОЛНИЯМИ */
+        .hero { padding: 90px 0; text-align: center; background: radial-gradient(circle at center, #27112b 0%, rgba(11, 11, 13, 0) 75%); position: relative; overflow: hidden; }
+        .hero::before { content: '\f0e7'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; font-size: 280px; color: rgba(255, 0, 127, 0.03); top: -40px; left: 5%; transform: rotate(15deg); pointer-events: none; }
+        .hero::after { content: '\f0eb'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; font-size: 240px; color: rgba(0, 243, 255, 0.03); bottom: -40px; right: 5%; transform: rotate(-15deg); pointer-events: none; }
+        
+        .hero h1 { font-size: 46px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
+        .neon-title { color: #fff; text-shadow: 0 0 5px #fff, 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink); animation: pulse Glow 2s infinite alternate; }
+        .hero p { font-size: 19px; color: var(--text-muted); max-width: 750px; margin: 0 auto 40px auto; }
+        
+        /* КНОПКИ-ПРОВОДНИКИ */
         .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; }
-        .btn-main { border: 2px solid var(--neon-pink); box-shadow: 0 0 10px var(--neon-glow); text-shadow: 0 0 5px #fff; color: #fff; }
-        .btn-main:hover { background-color: var(--neon-pink); box-shadow: 0 0 25px var(--neon-pink); }
-        .btn-wa { border: 2px solid #25D366; color: #fff; } .btn-wa:hover { background-color: #25D366; box-shadow: 0 0 25px #25D366; }
-        .main-content { padding: 60px 0; }
-        .content-box { background-color: var(--card-bg); border: 1px solid #2c2c2c; padding: 40px; border-radius: 4px; margin-bottom: 30px; }
-        .content-box h2 { text-transform: uppercase; margin-bottom: 20px; font-size: 26px; border-left: 4px solid var(--neon-pink); padding-left: 15px; }
-        .content-box p { margin-bottom: 15px; color: var(--text-muted); }
-        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(17, 17, 17, 0.95); border-top: 1px solid var(--neon-pink); padding: 12px 20px; z-index: 999; }
-        .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-shadow: 0 0 15px var(--neon-pink); }
-        footer { background-color: #0a0a0a; padding: 40px 0; border-top: 1px solid #2c2c2c; text-align: center; color: var(--text-muted); font-size: 14px; }
-        footer a { color: var(--text-main); text-decoration: none; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; position: relative; overflow: hidden; }
+        .btn-main { border: 2px solid var(--neon-pink); box-shadow: 0 0 15px var(--neon-glow), inset 0 0 5px var(--neon-glow); text-shadow: 0 0 5px #fff; color: #fff; background: transparent; }
+        .btn-main:hover { background-color: var(--neon-pink); box-shadow: 0 0 30px var(--neon-pink); }
+        .btn-wa { border: 2px solid #25D366; color: #fff; background: transparent; box-shadow: 0 0 15px rgba(37,211,102,0.2); } 
+        .btn-wa:hover { background-color: #25D366; box-shadow: 0 0 30px #25D366; text-shadow: 0 0 5px #fff; }
+        .btn-tg { border: 2px solid #0088cc; color: #fff; background: transparent; box-shadow: 0 0 15px rgba(0,136,204,0.2); } 
+        .btn-tg:hover { background-color: #0088cc; box-shadow: 0 0 30px #0088cc; text-shadow: 0 0 5px #fff; }
+        
+        /* ТЕКСТУРНЫЕ БЛОКИ-КАРТОЧКИ */
+        .main-content { padding: 40px 0; }
+        .content-box { background-color: var(--card-bg); border: 1px solid #22222b; padding: 40px; border-radius: 4px; margin-bottom: 30px; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .content-box::after { content: ''; position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: linear-gradient(135deg, transparent 50%, rgba(0, 243, 255, 0.05) 50%); }
+        .content-box h2 { text-transform: uppercase; margin-bottom: 20px; font-size: 26px; border-left: 4px solid var(--neon-pink); padding-left: 15px; text-shadow: 0 0 10px rgba(255,0,127,0.2); display: flex; align-items: center; gap: 10px; }
+        .content-box h2 i { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); font-size: 20px; }
+        .content-box p { margin-bottom: 15px; color: var(--text-muted); font-size: 15px; }
+        
+        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11, 11, 13, 0.95); border-top: 2px solid var(--neon-pink); padding: 12px 20px; z-index: 999; backdrop-filter: blur(5px); }
+        .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; box-shadow: 0 0 20px var(--neon-pink); text-shadow: 0 0 5px #fff; }
+        
+        footer { background-color: #060608; padding: 40px 0; border-top: 1px solid #1b1b22; text-align: center; color: var(--text-muted); font-size: 14px; }
+        footer a { color: var(--text-main); text-decoration: none; font-weight: bold; }
+        footer a:hover { color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
+
         @media (max-width: 768px) {
-            body { padding-bottom: 90px; } .hero h1 { font-size: 30px; }
+            body { padding-bottom: 90px; } .hero h1 { font-size: 32px; }
             .header-wrap { flex-direction: column; text-align: center; }
-            nav { width: 100%; justify-content: center; flex-wrap: wrap; }
-            .btn-group { flex-direction: column; } .btn { width: 100%; justify-content: center; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px; }
+            .btn-group { flex-direction: column; width: 100%; } .btn { width: 100%; justify-content: center; }
             .sticky-mobile-action { display: block; }
         }
     </style>
@@ -52,7 +88,7 @@
 <body>
     <header>
         <div class="container header-wrap">
-            <a href="index.html" class="logo"><span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-lightbulb"></i><span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span></a>
             <nav>
                 <a href="index.html" class="active">Главная</a>
                 <a href="services.html">Услуги</a>
@@ -65,28 +101,20 @@
     <section class="hero">
         <div class="container">
             <h1 class="neon-title">У Вас погас свет?</h1>
-            <p>Искрит в розетке, и вы не знаете что делать? Звоните по нашему волшебному телефону и вызывайте квалифицированного электрика на дом в Колпино!</p>
+            <p>Искрит в розетке или выбивает щиток? Наш кабель связи готов! Решим любые аварийные проблемы с электропроводкой в Колпинском районе надежно и под ключ.</p>
             <div class="btn-group">
-                <a href="tel:+79500308830" class="btn btn-main"><i class="fa-solid fa-phone"></i> +7 (950) 030-88-30</a>
+                <a href="tel:+79500308830" class="btn btn-main"><i class="fa-solid fa-bolt"></i> Позвонить мастеру</a>
                 <a href="https://wa.me" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me" target="_blank" class="btn btn-tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
             </div>
         </div>
     </section>
 
     <div class="container main-content">
         <div class="content-box">
-            <h2>Вызов электрика в Колпино</h2>
-            <p>Выполняем электромонтажные работы по дому, осуществляем быстрый выезд электрика на дом, поиск и оперативное устранение любых неисправностей в электропроводке.</p>
-            <p>Если Вам требуются качественные услуги электрика, не откладывайте его визит — все проблемы с электрикой в вашей квартире или доме будут решены в самые кратчайшие сроки.</p>
+            <h2><i class="fa-solid fa-plug-circle-bolt"></i> Вызов электрика в Колпино</h2>
+            <p>Выполняем полный комплекс качественных электромонтажных работ по дому. Осуществляем экстренный выезд электрика на дом, поиск обрывов питания, коротких замыканий и оперативное устранение неисправностей в силовых линиях.</p>
+            <p>Если Вам требуются надежные услуги частного электрика, не затягивайте — ветхая проводка опасна. Все проблемы будут устранены в самые короткие сроки с гарантией безопасности.</p>
         </div>
         <div class="content-box">
-            <h2>Электромонтажные работы любой сложности</h2>
-            <p>Осуществляем профессиональные работы, связанные с запитыванием мощных бытовых приборов, прокладкой надежного кабеля в кабель-каналах, штробах и гофре. Установим дополнительные розетки, автоматы защиты и современные выключатели.</p>
-            <p>Все работы выполняются качественно, быстро и по максимально приемлемым, честным ценам в день обращения!</p>
-        </div>
-    </div>
-
-    <div class="sticky-mobile-action"><a href="tel:+79500308830" class="btn-sticky"><i class="fa-solid fa-phone-flip"></i> Вызвать мастера</a></div>
-    <footer><div class="container"><p>Электрик-Колпино © 2026. Связь: <a href="https://t.me">Telegram @elektrikkolpino</a></p></div></footer>
-</body>
-</html>
+            <h2><i class="fa-solid fa-circle-nodes"></i> Проводка и бытовые приборы</h2>
