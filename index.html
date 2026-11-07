@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электрик Колпино — Вызов мастера на дом</title>
+    <meta name="description" content="Срочный вызов электрика в Колпино и Колпинском районе СПб. Все виды электромонтажных работ, устранение замыканий. Звоните: +7 (950) 030-88-30.">
+    <!-- Подключаем иконки FontAwesome (стиль неоновых значков) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Подключаем шрифт в стиле современных интерфейсов -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ЦВЕТОВАЯ ГАММА ТЕЛЕ2 + НЕОН */
+        :root {
+            --bg-color: #111111;       /* Глубокий черный Теле2 */
+            --card-bg: #1c1c1c;        /* Темно-серый для блоков */
+            --text-main: #ffffff;      /* Контрастный белый */
+            --text-muted: #959595;     /* Серый для подзаголовков */
+            --neon-pink: #ff007f;      /* Яркий розовый неон Теле2 */
+            --neon-glow: rgba(255, 0, 127, 0.6);
+            --neon-cyan: #00f3ff;      /* Дополнительный голубой неон для акцентов */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding-bottom: 80px; /* Отступ снизу для мобильной кнопки */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ШАПКА САЙТА */
+        header {
+            background-color: rgba(17, 17, 17, 0.95);
+            border-bottom: 1px solid #2c2c2c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+        }
+
+        .logo-dot {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+        }
+
+        .header-phone {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+            border: 1px solid #333;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .header-phone:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-glow);
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* ГЛАВНЫЙ ЭКРАН (HERO) */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: radial-gradient(circle at center, #221220 0%, var(--bg-color) 70%);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .neon-title {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* НЕОНОВЫЕ КНОПКИ */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-main {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-glow), inset 0 0 5px var(--neon-glow);
+            text-shadow: 0 0 5px #fff;
+        }
+
+        .btn-main:hover {
+            background-color: var(--neon-pink);
+            box-shadow: 0 0 25px var(--neon-pink), 0 0 50px var(--neon-pink);
+        }
+
+        .btn-tg {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #0088cc;
+            box-shadow: 0 0 10px rgba(0,136,204,0.3);
+        }
+
+        .btn-tg:hover {
+            background-color: #0088cc;
+            box-shadow: 0 0 25px rgba(0,136,204,0.7);
+        }
+
+        .btn-wa {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #25D366;
+            box-shadow: 0 0 10px rgba(37,211,102,0.3);
+        }
+
+        .btn-wa:hover {
+            background-color: #25D366;
+            box-shadow: 0 0 25px rgba(37,211,102,0.7);
+        }
+
+        /* БЛОК С УСЛУГАМИ (КАРТОЧКИ) */
+        .services {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title span {
+            color: var(--text-main);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #2c2c2c;
+            padding: 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 5px 20px rgba(255, 0, 127, 0.2);
+        }
+
+        .card-icon {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ИНФОРМАЦИОННЫЙ БЛОК */
+        .info-banner {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--neon-pink);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-banner h2 {
+            text-transform: uppercase;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* ПОДВАЛ (ФУТЕР) */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0;
+            border-top: 1px solid #2c2c2c;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* ПЛАВАЮЩАЯ МОБИЛЬНАЯ КНОПКА ВЫЗОВА */
+        .sticky-mobile-action {
+            display: none; /* Скрыта на компьютерах */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(17, 17, 17, 0.95);
+            border-top: 1px solid var(--neon-pink);
+            box-shadow: 0 -5px 20px var(--neon-glow);
+            padding: 12px 20px;
+            z-index: 999;
+        }
+
+        .sticky-mobile-action .btn-sticky {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background-color: var(--neon-pink);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 16px;
+            box-shadow: 0 0 15px var(--neon-pink);
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ */
+        @media (max-width: 768px) {
+            body { padding-bottom: 90px; } /* Добавляем отступ, чтобы футер не перекрывался кнопкой */
+            .hero h1 { font-size: 30px; }
+            .header-wrap { flex-direction: column; gap: 15px; text-align: center; }
+            .header-phone { display: none; } /* Скрываем обычный телефон в шапке, т.к. будет плавающий внизу */
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .sticky-mobile-action { display: block; } /* Показываем кнопку на смартфонах */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="container header-wrap">
+            <div class="logo">
+                <span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span>
+            </div>
+            <a href="tel:+79500308830" class="header-phone">
+                <i class="fa-solid fa-phone"></i> +7 (950) 030-88-30
+            </a>
+        </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+        <div class="container">
