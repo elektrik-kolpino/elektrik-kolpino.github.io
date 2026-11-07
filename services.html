@@ -3,94 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Все услуги электрика в Колпино — Большой список электромонтажных работ</title>
+    <title>Все услуги электрика в Колпино — 30 видов электромонтажных работ</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0b0b0d; --card-bg: #141418; --text-main: #ffffff; --text-muted: #8e8e9f;
-            --neon-pink: #ff007f; --neon-glow: rgba(255, 0, 127, 0.6); --neon-cyan: #00f3ff;
-        }
+        :root { --bg-color: #0b0b0d; --card-bg: #141418; --text-main: #ffffff; --text-muted: #8e8e9f; --neon-pink: #ff007f; --neon-cyan: #00f3ff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            background-color: var(--bg-color); 
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231b1b22' fill-opacity='0.4'%3E%3Cpath d='M0 0h20v2h-18v18h-2V0zm80 0v20h-2V2H62V0h18zM0 80v-20h2v18h18v2H0zm80 0H60v-2h18V60h2v20zM38 38h4v4h-4v-4zm4-30h-4v12h4V8zm0 52h-4v12h4v-12zm-30-14h12v-4H12v4zm52 0h12v-4H64v4zM22 22h4v4h-4v-4zm32 0h4v4h-4v-4zm0 32h4v4h-4v-4zm-32 0h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
-            color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; padding-bottom: 80px; 
-        }
+        body { background-color: var(--bg-color); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%231b1b22' fill-opacity='0.3'%3E%3Cpath d='M0 0h10v1H0v9h-1V0zm40 0v10h-1V1H29V0h11zM0 40v-10h1v9h9v1H0zm40 0H30v-1h9v-9h1v10z'/%3E%3C/g%3E%3C/svg%3E"); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.5; padding-bottom: 80px; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         header { background-color: rgba(11, 11, 13, 0.95); border-bottom: 2px solid #22222b; position: sticky; top: 0; z-index: 100; padding: 15px 0; backdrop-filter: blur(5px); }
         .header-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px; }
+        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; }
         .logo span { text-shadow: 0 0 10px var(--neon-cyan); }
-        .logo i { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-size: 20px; }
-        
         nav { display: flex; gap: 20px; align-items: center; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; position: relative; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; padding: 5px 0; position: relative; }
         nav a:hover, nav a.active { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink); transition: 0.3s; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--neon-pink); transition: 0.3s; }
         nav a:hover::after, nav a.active::after { width: 100%; }
-
-        .neon-phone {
-            font-weight: 900; font-size: 20px; text-decoration: none; padding: 8px 16px; border-radius: 4px; border: 2px solid transparent;
-            background: linear-gradient(#141418, #141418) padding-box, linear-gradient(90deg, #ff007f, #00f3ff, #ff007f) border-box;
-            animation: rainbow-text 3s linear infinite;
-        }
-        @keyframes rainbow-text {
-            0% { color: #ff007f; text-shadow: 0 0 10px rgba(255,0,127,0.8); filter: hue-rotate(0deg); }
-            100% { color: #ff007f; text-shadow: 0 0 10px rgba(255,0,127,0.8); filter: hue-rotate(360deg); }
-        }
-
-        .page-title { padding: 60px 0 20px 0; text-align: center; font-size: 36px; font-weight: 900; text-transform: uppercase; }
-        .page-title span { text-shadow: 0 0 15px var(--neon-pink); color: #fff; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 30px 0; }
-        .card { 
-            background-color: var(--card-bg); 
-            border: 1px solid #22222b; 
-            padding: 25px; 
-            border-radius: 4px; 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.6); 
-        }
-        
-        .card:nth-child(odd):hover { 
-            transform: translateY(-5px); 
-            border-color: var(--neon-cyan); 
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2); 
-        }
-        .card:nth-child(even):hover { 
-            transform: translateY(-5px); 
-            border-color: var(--neon-pink); 
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4), inset 0 0 10px rgba(255, 0, 127, 0.2); 
-        }
-
-        .card-icon { font-size: 36px; color: #fff; margin-bottom: 15px; transition: 0.3s; }
-        .card:nth-child(odd) .card-icon { text-shadow: 0 0 10px var(--neon-cyan); }
-        .card:nth-child(even) .card-icon { text-shadow: 0 0 10px var(--neon-pink); }
-        
-        .card:nth-child(odd):hover .card-icon { color: var(--neon-cyan); text-shadow: 0 0 20px var(--neon-cyan); }
-        .card:nth-child(even):hover .card-icon { color: var(--neon-pink); text-shadow: 0 0 20px var(--neon-pink); }
-
-        .card h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; color: #fff; font-weight: 700; letter-spacing: -0.5px; }
-        .card p { color: var(--text-muted); font-size: 14px; transition: 0.3s; }
-        .card:hover p { color: #fff; }
-        
-        .messenger-block { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; padding: 30px; background: #141418; border: 2px dashed #ff007f; box-shadow: 0 0 25px rgba(255,0,127,0.15); border-radius: 4px; }
-        .btn { display: inline-flex; align-items: center; gap: 12px; padding: 20px 45px; font-size: 20px; font-weight: 900; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; }
-        .btn-wa { border: 2px solid #25D366; color: #fff; background: transparent; box-shadow: 0 0 15px rgba(37,211,102,0.2); } 
-        .btn-wa:hover { background-color: #25D366; box-shadow: 0 0 40px #25D366; text-shadow: 0 0 5px #fff; }
-        .btn-tg { border: 2px solid #0088cc; color: #fff; background: transparent; box-shadow: 0 0 15px rgba(0,136,204,0.2); } 
-        .btn-tg:hover { background-color: #0088cc; box-shadow: 0 0 40px #0088cc; text-shadow: 0 0 5px #fff; }
-
-        .info-box { background-color: var(--card-bg); border-left: 4px solid var(--neon-cyan); padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11, 11, 13, 0.95); border-top: 2px solid var(--neon-pink); padding: 12px 20px; z-index: 999; backdrop-filter: blur(5px); }
+        .neon-phone { font-weight: 900; font-size: 20px; text-decoration: none; padding: 8px 16px; border-radius: 4px; border: 2px solid transparent; background: linear-gradient(#141418, #141418) padding-box, linear-gradient(90deg, #ff007f, #00f3ff, #ff007f) border-box; animation: rainbow-text 3s linear infinite; }
+        @keyframes rainbow-text { 0% { color: #ff007f; text-shadow: 0 0 10px rgba(255,0,127,0.8); filter: hue-rotate(0deg); } 100% { color: #ff007f; text-shadow: 0 0 10px rgba(255,0,127,0.8); filter: hue-rotate(360deg); } }
+        .page-title { padding: 40px 0 10px 0; text-align: center; font-size: 36px; font-weight: 900; text-transform: uppercase; }
+        .page-title span { text-shadow: 0 0 15px var(--neon-pink); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 20px 0; }
+        .card { background-color: var(--card-bg); border: 1px solid #22222b; padding: 20px; border-radius: 4px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.6); }
+        .card:nth-child(odd):hover { transform: translateY(-3px); border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
+        .card:nth-child(even):hover { transform: translateY(-3px); border-color: var(--neon-pink); box-shadow: 0 0 15px rgba(255, 0, 127, 0.4); }
+        .card-icon { font-size: 30px; color: #fff; margin-bottom: 10px; }
+        .card:nth-child(odd) .card-icon { text-shadow: 0 0 8px var(--neon-cyan); }
+        .card:nth-child(even) .card-icon { text-shadow: 0 0 8px var(--neon-pink); }
+        .card h3 { font-size: 16px; margin-bottom: 8px; text-transform: uppercase; color: #fff; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 13px; }
+        .messenger-block { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 25px 0; padding: 25px; background: #141418; border: 2px dashed #ff007f; border-radius: 4px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 35px; font-size: 18px; font-weight: 900; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: 0.3s; }
+        .btn-wa { border: 2px solid #25D366; color: #fff; } .btn-wa:hover { background-color: #25D366; box-shadow: 0 0 30px #25D366; }
+        .btn-tg { border: 2px solid #0088cc; color: #fff; } .btn-tg:hover { background-color: #0088cc; box-shadow: 0 0 30px #0088cc; }
+        .info-box { background-color: var(--card-bg); border-left: 4px solid var(--neon-cyan); padding: 25px; margin-bottom: 30px; }
+        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11, 11, 13, 0.95); border-top: 2px solid var(--neon-pink); padding: 12px 20px; z-index: 999; }
         .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
-        
-        footer { background-color: #060608; padding: 40px 0; border-top: 1px solid #1b1b22; text-align: center; color: var(--text-muted); font-size: 14px; }
+        footer { background-color: #060608; padding: 30px 0; border-top: 1px solid #1b1b22; text-align: center; color: var(--text-muted); font-size: 14px; }
         @media (max-width: 768px) {
             body { padding-bottom: 90px; } .header-wrap { flex-direction: column; text-align: center; }
-            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; } 
-            .messenger-block { flex-direction: column; width: 100%; padding: 15px; } .btn { width: 100%; justify-content: center; font-size: 16px; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px; } .messenger-block { flex-direction: column; }
             .sticky-mobile-action { display: block; }
         }
     </style>
@@ -98,7 +51,7 @@
 <body>
     <header>
         <div class="container header-wrap">
-            <a href="index.html" class="logo"><i class="fa-solid fa-lightbulb"></i><span>КОЛПИНО</span> ЭЛЕКТРИК</a>
+            <a href="index.html" class="logo"><span>КОЛПИНО</span> ЭЛЕКТРИК</a>
             <nav>
                 <a href="index.html">Главная</a>
                 <a href="services.html" class="active">Услуги</a>
@@ -110,32 +63,19 @@
     </header>
 
     <div class="container">
-        <h1 class="page-title">Услуги <span>Электрика</span></h1>
-        
+        <h1 class="page-title">Услуги <span>в Колпино</span></h1>
         <div class="grid">
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                <h3>Устранение аварий в Колпино</h3>
-                <p>Срочный аварийный выезд мастера, оперативный поиск обрывов силового кабеля, устранение коротких замыканий и быстрое восстановление подачи света.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                <h3>Диагностика проводки в Колпино</h3>
-                <p>Полная техническая проверка силовых линий, обнаружение скрытых утечек тока, дефектов изоляции и ветхих опасных участков домашней цепи.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                <h3>Монтаж люстр в Колпино</h3>
-                <p>Профессиональная сборка, надежное потолочное крепление и безопасное подключение любых люстр, тяжелых подвесных светильников или бра.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-circle-dot"></i></div>
-                <h3>Точечные светильники в Колпино</h3>
-                <p>Установка, разводка линий и замена врезных потолочных светильников, диодных лент, софитов и элементов декоративной интерьерной подсветки.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-icons"></i></div>
-                <h3>Монтаж бра и спотов в Колпино</h3>
-                <p>Установка настенных светильников, направленных регулируемых спотов, комплексная замена патронов и сгоревших ламп на новые.</p>
-            </div>
-            <div class="card">
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-bolt"></i></div><h3>1. Аварийный выезд в Колпино</h3><p>Срочный выезд мастера, оперативный поиск повреждений силового кабеля и быстрое устранение замыканий.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><h3>2. Диагностика сети в Колпино</h3><p>Полная техническая проверка проводки, обнаружение скрытых утечек тока и дефектов старой изоляции.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div><h3>3. Монтаж люстр в Колпино</h3><p>Профессиональная сборка, надежное потолочное крепление и безопасное подключение любых люстр и бра.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-circle-dot"></i></div><h3>4. Точечный свет в Колпино</h3><p>Установка врезных потолочных софитов, диодных лент и элементов декоративной интерьерной подсветки.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-icons"></i></div><h3>5. Монтаж бра и спотов в Колпино</h3><p>Установка настенных светильников, направленных регулируемых спотов, замена старых патронов.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-plug-circle-exclamation"></i></div><h3>6. Блок Ванна-Туалет в Колпино</h3><p>Качественный монтаж и замена комплексных тройных блоков выключателей и влагозащищенных розеток.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-kitchen-set"></i></div><h3>7. Блок розеток Кухня в Колпино</h3><p>Разводка мощных розеточных групп под кухонный фартук с грамотным распределением нагрузок бытовой техники.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-plug"></i></div><h3>8. Замена розеток в Колпино</h3><p>Демонтаж старых сломанных механизмов, монтаж новых безопасных евророзеток с надежным заземлением.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-toggle-on"></i></div><h3>9. Выключатели света в Колпино</h3><p>Монтаж проходных, сенсорных, классических одноклавишных и двухклавишных настенных выключателей.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-bore-hole"></i></div><h3>10. Подрозетники в Колпино</h3><p>Высверливание точных посадочных отверстий коронкой в бетоне, кирпиче и монолите под коробки.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-box-tissue"></i></div><h3>11. Переборка щитков в Колпино</h3><p>Полная внутренняя сборка с нуля, перенос старых этажных электрощитов внутрь квартир и домов.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>12. Замена автоматов в Колпино</h3><p>Монтаж модульных автоматических выключателей, УЗО, дифф-автоматов и реле контроля напряжения.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-calculator"></i></div><h3>13. Электросчетчики в Колпино</h3><p>Профессиональный демонтаж приборов учета и установка новых сертифицированных счетчиков.</p></div>
+            <div class="card"><div class="card-icon"><i class="fa-solid fa-cable-navy"></i></div><h3>14. Прокладка кабеля в Колпино</h3><p>Монтаж силовых линий в защитной гофре, скрытых штробах или пластиковых кабель-каналах по ГОСТ.</p></div>
