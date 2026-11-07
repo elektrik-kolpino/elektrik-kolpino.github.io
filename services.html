@@ -8,41 +8,56 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #111111; --card-bg: #1c1c1c; --text-main: #ffffff; --text-muted: #959595;
+            --bg-color: #0b0b0d; --card-bg: #141418; --text-main: #ffffff; --text-muted: #8e8e9f;
             --neon-pink: #ff007f; --neon-glow: rgba(255, 0, 127, 0.6); --neon-cyan: #00f3ff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; padding-bottom: 80px; }
+        body { 
+            background-color: var(--bg-color); 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231b1b22' fill-opacity='0.4'%3E%3Cpath d='M0 0h20v2h-18v18h-2V0zm80 0v20h-2V2H62V0h18zM0 80v-20h2v18h18v2H0zm80 0H60v-2h18V60h2v20zM38 38h4v4h-4v-4zm4-30h-4v12h4V8zm0 52h-4v12h4v-12zm-30-14h12v-4H12v4zm52 0h12v-4H64v4zM22 22h4v4h-4v-4zm32 0h4v4h-4v-4zm0 32h4v4h-4v-4zm-32 0h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; padding-bottom: 80px; 
+        }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background-color: rgba(17, 17, 17, 0.95); border-bottom: 1px solid #2c2c2c; position: sticky; top: 0; z-index: 100; padding: 15px 0; }
+        header { background-color: rgba(11, 11, 13, 0.95); border-bottom: 2px solid #22222b; position: sticky; top: 0; z-index: 100; padding: 15px 0; backdrop-filter: blur(5px); }
         .header-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; }
+        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 8px; }
         .logo span { text-shadow: 0 0 10px var(--neon-cyan); }
+        .logo i { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); font-size: 20px; }
         nav { display: flex; gap: 20px; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; position: relative; }
         nav a:hover, nav a.active { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink); transition: 0.3s; }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
         .page-title { padding: 60px 0 20px 0; text-align: center; font-size: 36px; font-weight: 900; text-transform: uppercase; }
-        .page-title span { text-shadow: 0 0 15px var(--neon-pink); }
+        .page-title span { text-shadow: 0 0 15px var(--neon-pink); color: #fff; }
+        
+        /* КАРТОЧКИ УСЛУГ С НЕОНОВЫМ ПОДКЛЮЧЕНИЕМ */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 40px 0; }
-        .card { background-color: var(--card-bg); border: 1px solid #2c2c2c; padding: 30px; border-radius: 4px; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--neon-pink); box-shadow: 0 5px 20px rgba(255, 0, 127, 0.2); }
-        .card-icon { font-size: 36px; color: #fff; margin-bottom: 20px; text-shadow: 0 0 10px var(--neon-pink); }
-        .card h3 { font-size: 20px; margin-bottom: 12px; text-transform: uppercase; color: #fff; }
+        .card { background-color: var(--card-bg); border: 1px solid #22222b; padding: 30px; border-radius: 4px; transition: 0.3s; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .card:hover { transform: translateY(-5px); border-color: var(--neon-cyan); box-shadow: 0 5px 25px rgba(0, 243, 255, 0.2); }
+        .card-icon { font-size: 38px; color: #fff; margin-bottom: 20px; text-shadow: 0 0 12px var(--neon-pink); transition: 0.3s; }
+        .card:hover .card-icon { text-shadow: 0 0 15px var(--neon-cyan); color: var(--neon-cyan); }
+        .card h3 { font-size: 20px; margin-bottom: 12px; text-transform: uppercase; color: #fff; font-weight: 700; letter-spacing: -0.5px; }
         .card p { color: var(--text-muted); font-size: 14px; }
-        .info-box { background-color: var(--card-bg); border-left: 4px solid var(--neon-cyan); padding: 30px; margin-bottom: 40px; }
-        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(17, 17, 17, 0.95); border-top: 1px solid var(--neon-pink); padding: 12px 20px; z-index: 999; }
+        
+        .info-box { background-color: var(--card-bg); border-left: 4px solid var(--neon-cyan); padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .info-box h3 { text-transform: uppercase; margin-bottom: 10px; font-size: 18px; color: #fff; }
+        
+        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11, 11, 13, 0.95); border-top: 2px solid var(--neon-pink); padding: 12px 20px; z-index: 999; backdrop-filter: blur(5px); }
         .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
-        footer { background-color: #0a0a0a; padding: 40px 0; border-top: 1px solid #2c2c2c; text-align: center; color: var(--text-muted); font-size: 14px; }
+        
+        footer { background-color: #060608; padding: 40px 0; border-top: 1px solid #1b1b22; text-align: center; color: var(--text-muted); font-size: 14px; }
         @media (max-width: 768px) {
             body { padding-bottom: 90px; } .header-wrap { flex-direction: column; text-align: center; }
-            nav { width: 100%; justify-content: center; flex-wrap: wrap; } .sticky-mobile-action { display: block; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px; } .sticky-mobile-action { display: block; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-wrap">
-            <a href="index.html" class="logo"><span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-lightbulb"></i><span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span></a>
             <nav>
                 <a href="index.html">Главная</a>
                 <a href="services.html" class="active">Услуги</a>
@@ -57,44 +72,44 @@
         
         <div class="grid">
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
                 <h3>Устранение аварий</h3>
-                <p>Поиск повреждений проводки, восстановление электроснабжения помещений после коротких замыканий и перегрузок.</p>
+                <p>Поиск скрытых обрывов, оперативное восстановление поврежденного энергоснабжения после коротких замыканий и опасных перегрузок проводки.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
-                <h3>Замена розеток и выключателей</h3>
-                <p>Замена и установка розеток, светильников, надежных выключателей. Монтаж наружных розеток, перенос точек в удобные места.</p>
+                <div class="card-icon"><i class="fa-solid fa-plug-circle-exclamation"></i></div>
+                <h3>Розетки и выключатели</h3>
+                <p>Комплексная замена розеток, выключателей, диммеров. Монтаж защищенных наружных розеток в бетон или кирпич, профессиональный перенос точек питания.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                <h3>Замена электропроводки</h3>
-                <p>Полная или частичная замена старой алюминиевой проводки на медную. Прокладка силовых, телевизионных и интернет кабелей.</p>
+                <div class="card-icon"><i class="fa-solid fa-cable-navy"></i></div>
+                <h3>Замена проводки</h3>
+                <p>Полный демонтаж старой алюминиевой проводки и разводка надежного медного кабеля. Прокладка силовых и слаботочных телевизионных сетей.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-box-open"></i></div>
-                <h3>Электрощиты и автоматы</h3>
-                <p>Замена автоматических выключателей (автоматов) в щитах, установка современных УЗО, полная переборка старых щитков.</p>
+                <div class="card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <h3>Щиты и автоматика</h3>
+                <p>Замена неисправных автоматических выключателей (автоматов) в щитах, монтаж УЗО, полная профессиональная переборка старых электрощитов.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-gauge"></i></div>
                 <h3>Замена счетчиков</h3>
-                <p>Профессиональный демонтаж и оперативная замена счетчиков электроэнергии (электросчетчиков) с соблюдением стандартов.</p>
+                <p>Безопасный демонтаж отслуживших приборов учета и оперативная установка новых сертифицированных счетчиков электроэнергии.</p>
             </div>
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-fill-drip"></i></div>
                 <h3>Подключение техники</h3>
-                <p>Подведение выделенных линий питания для стиральных машин, бойлеров, водонагревателей, качественный ремонт электроплит.</p>
+                <p>Прокладка выделенных линий питания со своим автоматом для стиральных машин, бойлеров. Ремонт бытовых электроплит и замена конфорок.</p>
             </div>
         </div>
 
         <div class="info-box">
-            <h3>Профессиональная консультация</h3>
-            <p>Мы полностью проконсультируем вас в любых вопросах, связанных с заменой элементов питания, расчетом сечения провода, выбором автоматов и моделей оборудования. Все технические заботы мы берем на себя!</p>
+            <h3><i class="fa-solid fa-circle-info" style="color:var(--neon-cyan);"></i> Помощь в подборе материалов</h3>
+            <p>Мы полностью берем на себя расчеты сечения проводов, выбор надежных марок автоматов, УЗО и моделей оконечных устройств. Вам останется только наслаждаться безопасным и стабильным светом!</p>
         </div>
     </div>
 
-    <div class="sticky-mobile-action"><a href="tel:+79500308830" class="btn-sticky"><i class="fa-solid fa-phone-flip"></i> Вызвать мастера</a></div>
+    <div class="sticky-mobile-action"><a href="tel:+79500308830" class="btn-sticky"><i class="fa-solid fa-phone-flip"></i> Вызвать мастера на дом</a></div>
     <footer><div class="container"><p>Электрик-Колпино © 2026.</p></div></footer>
 </body>
 </html>
