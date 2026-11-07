@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены на электромонтажные работы в Колпино — Прайс-лист</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111111; --card-bg: #1c1c1c; --text-main: #ffffff; --text-muted: #959595;
+            --neon-pink: #ff007f; --neon-cyan: #00f3ff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; padding-bottom: 80px; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: rgba(17, 17, 17, 0.95); border-bottom: 1px solid #2c2c2c; position: sticky; top: 0; z-index: 100; padding: 15px 0; }
+        .header-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-weight: 900; font-size: 24px; text-transform: uppercase; text-decoration: none; color: #fff; }
+        .logo span { text-shadow: 0 0 10px var(--neon-cyan); }
+        nav { display: flex; gap: 20px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; transition: 0.3s; padding: 5px 0; }
+        nav a:hover, nav a.active { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+        .page-title { padding: 60px 0 20px 0; text-align: center; font-size: 36px; font-weight: 900; text-transform: uppercase; }
+        .page-title span { text-shadow: 0 0 15px var(--neon-pink); }
+        
+        /* ТАБЛИЦА ЦЕН */
+        .table-wrap { background-color: var(--card-bg); border: 1px solid #2c2c2c; border-radius: 4px; padding: 20px; margin: 40px 0; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { font-weight: 700; text-transform: uppercase; padding: 15px; border-bottom: 2px solid var(--neon-pink); color: #fff; }
+        td { padding: 15px; border-bottom: 1px solid #2c2c2c; color: var(--text-muted); }
+        tr:hover td { color: #fff; background-color: #252525; }
+        .price-val { font-weight: 700; color: var(--text-main); text-shadow: 0 0 5px var(--neon-cyan); }
+        
+        .sticky-mobile-action { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(17, 17, 17, 0.95); border-top: 1px solid var(--neon-pink); padding: 12px 20px; z-index: 999; }
+        .sticky-mobile-action .btn-sticky { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background-color: var(--neon-pink); color: #fff; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+        footer { background-color: #0a0a0a; padding: 40px 0; border-top: 1px solid #2c2c2c; text-align: center; color: var(--text-muted); font-size: 14px; }
+        @media (max-width: 768px) {
+            body { padding-bottom: 90px; } .header-wrap { flex-direction: column; text-align: center; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; } .sticky-mobile-action { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-wrap">
+            <a href="index.html" class="logo"><span>КОЛПИНО</span> ЭЛЕКТРИК<span class="logo-dot">.</span></a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="prices.html" class="active">Цены</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Стоимость <span>Работ</span></h1>
+        
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Наименование услуги</th>
+                        <th>Стоимость</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Вызов электрика на дом в Колпино</td><td class="price-val">Приемлемая / Договорная</td></tr>
+                    <tr><td>Поиск неисправности электропроводки при коротком замыкании</td><td class="price-val">от 1000 руб.</td></tr>
+                    <tr><td>Замена автоматического выключателя (автомата) в щитке</td><td class="price-val">от 300 руб.</td></tr>
+                    <tr><td>Установка / Замена розетки или выключателя</td><td class="price-val">от 250 руб.</td></tr>
+                    <tr><td>Монтаж наружной розетки в стену</td><td class="price-val">от 400 руб.</td></tr>
+                    <tr><td>Сборка, перенос или полная переборка старого электрощита</td><td class="price-val">от 2500 - 3000 руб.</td></tr>
+                    <tr><td>Подключение стиральной машины / водонагревателя (с линией питания)</td><td class="price-val">от 1500 руб.</td></tr>
+                    <tr><td>Демонтаж и замена счетчика электроэнергии</td><td class="price-val">от 1200 руб.</td></tr>
+                    <tr><td>Прокладка кабеля в кабель-канале / гофре (за метр)</td><td class="price-val">от 150 руб.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="sticky-mobile-action"><a href="tel:+79500308830" class="btn-sticky"><i class="fa-solid fa-phone-flip"></i> Узнать точную цену</a></div>
+    <footer><div class="container"><p>Электрик-Колпино © 2026.</p></div></footer>
+</body>
+</html>
